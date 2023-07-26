@@ -8,10 +8,10 @@ classifier = pipeline("zero-shot-classification",model="facebook/bart-large-mnli
 
 # veri çekme
 df= pd.read_excel(r"New Microsoft Excel Worksheet.xlsx")
-df.to_csv(r"C:/Users/yunus/Desktop/ıvır zıvır\cmc_speechdata.csv", index = None, header=True)
+df.to_csv("", index = None, header=True)
 
 # doldurmak üzere boş excel dosyası oluşturma
-workbook = xw.Workbook('cmc_labeled_data.xlsx')
+workbook = xw.Workbook('labeled_data.xlsx')
 worksheet = workbook.add_worksheet()
 
 # excel dosyasına başlıkları koyma
@@ -28,7 +28,7 @@ for i in range(100):
     sequence_to_classify = df["CustomerText"][i]
     
     # dağıtalacak etiketler
-    candidate_labels = ["Bayi","Bilgi","Değişim","İade","Garanti","Kampanya","Kurulum","Servis","Yetkili Çağrısı","Şikayet", "Diğer"]
+    candidate_labels = [""]
     
     # sonuçları al
     results = classifier(sequence_to_classify, candidate_labels)
